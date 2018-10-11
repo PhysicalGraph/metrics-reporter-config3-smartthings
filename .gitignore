@@ -1,0 +1,79 @@
+# Plugins / linked directories
+/smartapps
+smartthingscoreteam
+smartthingspublic
+smartthingsprivate
+SmartThingsCapabilities
+grails-spring-security-acl/
+grails-spring-security-acl-old/
+grails-taggable/
+/plugins
+/web-app/plugins
+
+# ActiveMQ data
+activemq-data
+
+# logs
+stacktrace.log
+/logs/
+
+# compiled files
+/target/
+/web-app/WEB-INF/classes
+.sass-cache
+
+# testing / code coverage
+cobertura.ser
+
+# HSQL database files
+*Db.properties
+*Db.script
+
+# Elasticsearch
+/data/elasticsearch/
+
+# Eclipse files
+/.settings
+/.classpath
+/.project
+/eclipse/
+/target-eclipse
+
+# Gradle
+/build
+
+# IntelliJ files
+*.iws
+*.iml
+.idea
+/out
+*.ipr
+
+# TextMate files
+*.tmproj
+
+# Mac OS files
+.DS_Store
+grails-app/migrations/datamgmt_dev_2014-02-18.sql
+
+# Redis persistence
+dump.rdb
+
+# jenv
+.java-version
+.ruby-version
+
+# Front-End Buid
+/node_modules
+/bower_components
+/grails-app/assets
+/.tmp
+
+# Grails class reloading
+.slcache
+
+# Spinnaker Pipeline Config
+pipelines/build
+pipelines/scripts/roer
+pipelines/scripts/lib/*.pyc
+pipelines/ansible/ansible-vault-password
