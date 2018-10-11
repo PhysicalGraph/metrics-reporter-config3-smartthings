@@ -26,7 +26,7 @@ Also, note the package name change: com.addthis.metrics3 rather than com.addthis
 The metric names from 2.1 to 2.2 changed a lot at the tail end of the jmx, with names being swapped in order. 
 
 Bootstrap process:
- 1) the -Dcassandra.metricsReporterConfigFile jvm parameter triggers the custom reporting jar
+ 1) the -Dcassandra.metricsReporterConfigFile jvm parameter on the cassandra start command triggers the custom reporting jar
  2) the value of that references the cassandra-reporter.yaml file in the cassandra conf directory
  3) that file has a top-level 'datadog' key
  4) the jvm parameter from step 1 triggers the execution of the com.addthis.metrics3.reporter.config.ReporterConfig class
