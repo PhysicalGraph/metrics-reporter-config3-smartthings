@@ -23,6 +23,6 @@ DatadogReporter3 is a lot like the 2.1.x version but works with the considerably
 
 Also, note the package name change: com.addthis.metrics3 rather than com.addthis.metrics
 
-The metric names changed a lot at the tail end of the jmx, with names being swapped in order. 
+The metric names from 2.1 to 2.2 changed a lot at the tail end of the jmx, with names being swapped in order. 
 
 
