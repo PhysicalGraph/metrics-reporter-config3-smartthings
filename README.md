@@ -7,9 +7,13 @@ note we remove ganglia, graphite, and riemann references. To re-enable:
 - compare the ReporterConfig.java with the original project in the reporter-config3 subproject of https://github.com/addthis/metrics-reporter-config
 - add the appropriate metrics reporter dependency for ganglia or graphite to the build.gradle file
 
-1) compile with ./gradlew clean build jar
+To deploy this library to a 2.2 or 3.x cassandra cluster:
+
+1) compile with ./gradlew clean build jar from the project root
 2) scp the ./build/libs/metrics-reporter-config3-smartthing-3.0.0.jar to the cass nodes lib dir
 3) remove/rename-disable the reporter-config-3.0.0.jar (I usually rename to reporter-config-3.0.0.jar.orig.disabled
+4) adapt/edit the $cassandra_home/cassandra-reporter.yaml file
+5) specify that file in the -Dcassandra.metricsReporterConfigFile option on the cassandra start command
 
 This project has both the configuration override classes and the DatadogReporter3 class that uploads the data
 
