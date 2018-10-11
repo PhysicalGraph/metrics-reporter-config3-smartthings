@@ -41,12 +41,20 @@ cobertura.ser
 
 # Gradle
 /build
+/build/
+build/
+build/*
+build
 
 # IntelliJ files
 *.iws
 *.iml
 .idea
 /out
+out
+out/
+/out/
+out/*
 *.ipr
 
 # TextMate files
