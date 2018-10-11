@@ -33,7 +33,7 @@ Bootstrap process:
  1) the -Dcassandra.metricsReporterConfigFile jvm parameter on the cassandra start command triggers the custom reporting jar
  2) the value of that references the cassandra-reporter.yaml file in the cassandra conf directory
  3) that file has a top-level 'datadog' key
- 4) the jvm parameter from step 1 triggers the execution of the com.addthis.metrics3.reporter.config.ReporterConfig class
+ 4) the jvm parameter from step 1 triggers the execution of the com.addthis.metrics3.reporter.config.ReporterConfig class that we customized
  5) that class loads the .yaml file. The 'datadog' key in that file references the datadog instance var in ReporterConfig
  6) ReporterConfig invokes DatadogReporter3Config.enable() because of the non-null datadog instance var
  7) DatadogReporter3Config instantiates the DatadogReporter3 class which runs on a timer/schedule based on the yaml conf
