@@ -1,7 +1,7 @@
 # metrics-reporter-config3-smartthings
 Cassandra metrics3 datadog reporter customization for cassandra 2.2 and 3.x
 
-replaces/supersedes https://github.com/SmartThingsOSS/metrics-reporter-config for cassandra 2.2 and (not yet tested) 3.x clusters
+replaces/supersedes https://github.com/SmartThingsOSS/metrics-reporter-config AND https://github.com/SmartThingsOSS/cassandra-datadog for cassandra 2.2 and (not yet tested) 3.x clusters
 
 note we remove ganglia, graphite, and riemann references. To re-enable:
 - compare the ReporterConfig.java with the original project in the reporter-config3 subproject of https://github.com/addthis/metrics-reporter-config
