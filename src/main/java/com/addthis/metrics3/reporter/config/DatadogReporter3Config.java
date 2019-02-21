@@ -17,12 +17,13 @@ public class DatadogReporter3Config extends AbstractMetricReporterConfig impleme
     List<String> expansions = Arrays.asList("RATE_1_MINUTE", "P95");
     String hostName;
     String fileName;
+    String prefixReplacement = "cassandra";
 
     public boolean enable(MetricRegistry registry) {
         log.info("metrics: begin datadog enablement");
         String className = "smartthings.cassandra.datadog.metrics3.DatadogReporter3";
         if (!isClassAvailable(className)) {
-            log.error("Tried to enable DatadogReporter, but class $className was not found");
+            log.error("Tried to enable DatadogReporter, but class "+className+" was not found");
             return false;
         }
 
@@ -31,14 +32,17 @@ public class DatadogReporter3Config extends AbstractMetricReporterConfig impleme
             for (String ex : expansions) {
                 Expansions e = Expansions.valueOf(ex);
                 if (ex != null) {
+                    log.info("  expansion {}",ex);
                     exs.add(e);
                 }
             }
             if (exs.size() <= 0) {
                 throw new IllegalArgumentException("Must have one or more expansion");
             }
+            log.info("prefix replacement: {}",prefixReplacement);
             log.info("metrics: instantiating DatadogReporter");
             log.debug("  registry names {}",registry.getNames());
+
 
             DatadogReporter3 datadogReporter = new DatadogReporter3(
                     "datadog-reporter",
@@ -52,7 +56,7 @@ public class DatadogReporter3Config extends AbstractMetricReporterConfig impleme
                     getRealRateunit(),
                     getRealTimeunit(),
                     MetricFilterTransformer.generateFilter(getPredicate()),
-                    new PrefixReplacingFormatter("org.apache.cassandra.metrics", "cassandra")
+                    new PrefixReplacingFormatter("org.apache.cassandra.metrics", prefixReplacement)
             );
             datadogReporter.start(period, getRealTimeunit());
             log.info("metrics: DatadogReporter initialized");
@@ -95,4 +99,8 @@ public class DatadogReporter3Config extends AbstractMetricReporterConfig impleme
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
+
+    public String getPrefixReplacement() { return prefixReplacement; }
+
+    public void setPrefixReplacement(String prefixReplacement) { this.prefixReplacement = prefixReplacement; }
 }
