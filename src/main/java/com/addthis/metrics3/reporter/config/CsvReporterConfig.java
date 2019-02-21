@@ -30,7 +30,7 @@ public class CsvReporterConfig extends AbstractCsvReporterConfig implements Metr
     @Override
     public boolean enable(MetricRegistry registry)
     {
-        log.info("Enabling CsvReporter to {}", outdir);
+        log.debug("Enabling CsvReporter to {}", outdir);
         try
         {
             File foutDir = createFile();

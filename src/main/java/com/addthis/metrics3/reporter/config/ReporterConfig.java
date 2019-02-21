@@ -106,7 +106,7 @@ public class ReporterConfig extends AbstractReporterConfig {
     }
 
     public boolean enableAll(MetricRegistry registry) {
-        log.info("metrics config: perform enable checks");
+        log.debug("metrics config: perform enable checks");
         boolean enabled = false;
         if (console != null) {
             if (enableConsole(registry)) {
@@ -119,9 +119,9 @@ public class ReporterConfig extends AbstractReporterConfig {
             }
         }
         if (datadog != null) {
-            log.info("metrics config: datadog configured");
+            log.debug("metrics config: datadog configured");
             if (enableDatadog(registry)) {
-                log.info("metrics config: datadog enabled");
+                log.debug("metrics config: datadog enabled");
                 enabled = true;
             }
         }
@@ -132,7 +132,7 @@ public class ReporterConfig extends AbstractReporterConfig {
     }
 
     public static ReporterConfig loadFromFileAndValidate(String fileName) throws IOException {
-        log.info(log.isInfoEnabled() ? "metrics config: load/validate " + fileName : "");
+        log.debug(log.isInfoEnabled() ? "metrics config: load/validate " + fileName : "");
         ReporterConfig config = loadFromFile(fileName);
         if (validate(config)) {
             return config;
@@ -142,7 +142,7 @@ public class ReporterConfig extends AbstractReporterConfig {
     }
 
     public static ReporterConfig loadFromFile(String fileName) throws IOException {
-        log.info(log.isInfoEnabled() ? "metrics config: loading " + fileName : "");
+        log.debug(log.isInfoEnabled() ? "metrics config: loading " + fileName : "");
         return AbstractReporterConfig.loadFromFile(fileName, ReporterConfig.class);
     }
 

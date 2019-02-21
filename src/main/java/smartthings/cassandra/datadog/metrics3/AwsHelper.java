@@ -20,7 +20,7 @@ class AwsHelper {
         while (true) {
             try {
                 String instanceId = callAWS();
-                log.info("Discovered instanceId of {}", instanceId);
+                log.debug("Discovered instanceId of {}", instanceId);
                 return instanceId;
             } catch (Exception e) {
                 errCnt++;
@@ -41,7 +41,7 @@ class AwsHelper {
         HttpURLConnection urlConnection = null;
         URL instanceUrl;
         try {
-            log.info("Requesting instance id from aws meta data endpoints");
+            log.debug("Requesting instance id from aws meta data endpoints");
             instanceUrl = new URL("http://169.254.169.254/latest/meta-data/instance-id");
 
             urlConnection = (HttpURLConnection) instanceUrl.openConnection();
@@ -59,7 +59,7 @@ class AwsHelper {
                 throw new IOException("Invalid status code $responseCode found when trying to get aws instance-id");
             }
             String instanceId = inputStreamToString(response);
-            log.info("Found aws instance id of {}", instanceId);
+            log.debug("Found aws instance id of {}", instanceId);
             return instanceId;
         } catch (Exception e) {
             throw new RuntimeException("Error in aws instanceid resolution", e);
