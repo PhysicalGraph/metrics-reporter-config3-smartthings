@@ -17,7 +17,7 @@ public class DatadogReporter3Config extends AbstractMetricReporterConfig impleme
     List<String> expansions = Arrays.asList("RATE_1_MINUTE", "P95");
     String hostName;
     String fileName;
-    String prefixReplacement = "cass";
+    String prefixReplacement = "cassandra";
 
     public boolean enable(MetricRegistry registry) {
         log.info("metrics: begin datadog enablement");
